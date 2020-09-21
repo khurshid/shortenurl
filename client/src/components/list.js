@@ -6,6 +6,12 @@ const PageComponent = () =>
 {
 const [Domain, setDomain] = useState('')
 const [Result, setResult] = useState([{}]);
+const styleName ={
+  "even":"#EFEFEF",
+  "odd":"#f4ddb1"
+
+}
+
 useEffect(() => {
   axis.get(GETSHORTENURL)
   .then(res=>{
@@ -17,14 +23,15 @@ useEffect(() => {
   return () => {
     setResult([{}])
   }
-}, [])
+}, []);
+var ind=1;
   
 return (
 <div id="datapanel">
 <Link to="/">Home</Link>
 <h1>Analytics</h1>
  {Result.map(prod =>(
-<div id="drow" key={Math.random(1500)}>
+<div id="drow" style={{background:(ind%2?styleName.odd:styleName.even)}} key={ind++}>
 <p>
         <strong>
           {prod.url}

@@ -6,8 +6,7 @@ const HomePage = () => {
   const [url, seturl] = useState('');
   const [data, setdata] = useState({});
   const  performAction = () => {
-  //var resdata ={"shorturl":"http://dug.lu/axpardd"};
-  //setdata(resdata);
+  
   if(url==='') return;
   let apiurl=CREATESHORTENURL.replace("{inputURL}",encodeURIComponent(url));
    axios.get(apiurl)
